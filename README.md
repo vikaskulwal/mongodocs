@@ -10,7 +10,12 @@ https://medium.com/@matteocontrini/how-to-setup-auth-in-mongodb-3-0-properly-86b
 use admin
 
 ### Create a new admin user
-db.createUser({ user: "admin", pwd: "svhostel", roles: [{ role: "userAdminAnyDatabase", db: "admin" }] })
+db.createUser({ user: "admin", pwd: "adminpassword", roles: [{ role: "userAdminAnyDatabase", db: "admin" }] })
 
+### Login and logout
+db.auth("admin", "adminpassword")
+exit
 
-
+## Add below lines to enable security 
+security:
+	authorization: enabled
